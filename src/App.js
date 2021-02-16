@@ -1,35 +1,35 @@
-import React, { useEffect, useState } from "react";
-import Todo from "./components/Todo/Todo";
-import AddTodo from "./components/AddTodo/AddTodo";
-// import './App.css';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import About from "./pages/About/About";
+import Home from "./pages/Home/Home";
+import TodoDetails from "./pages/TodoPage/TodoPage";
 
-// import shuki, {arr1} from './efrat.js'
+
 const App = () => {
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((response) => response.json())
-      .then((data) => setTodos(data));
-  }, []);
-
-  const addTodo = (title) => {
-    const newTodo = {
-      id: todos.length + 1,
-      title,
-      userId: 0,
-      completed: false,
-    };
-    setTodos([newTodo, ...todos]);
-  };
-
   return (
-    <div>
-      <AddTodo onAdd={addTodo} />
-      {todos.map((todo) => (
-        <Todo key={todo.id} id={todo.id} title={todo.title} />
-      ))}
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route path="/todos/:todoId" component={TodoDetails}>
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 };
 

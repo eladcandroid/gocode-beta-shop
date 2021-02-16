@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Todo = ({id, title}) => {
   useEffect(() => {
-    console.log('TODO: ', id);
+    // console.log('TODO: ', id);
     
     return () => console.log('DIE: ', id);
   }, [id]);

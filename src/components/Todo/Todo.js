@@ -1,13 +1,7 @@
-import React, { useEffect } from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
 const Todo = ({id, title}) => {
-  useEffect(() => {
-    // console.log('TODO: ', id);
-    
-    return () => console.log('DIE: ', id);
-  }, [id]);
-
   return <div>
     ID: {id}, {title}
   </div>

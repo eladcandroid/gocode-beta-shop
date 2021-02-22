@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import About from "./pages/About/About";
 import Home from "./pages/Home/Home";
 import TodoDetails from "./pages/TodoPage/TodoPage";
-
+import './App.css';
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
       <div>
         <nav>
           <ul>
-            <li>
+            <li>   
               <Link to="/">Home</Link>
             </li>
             <li>
